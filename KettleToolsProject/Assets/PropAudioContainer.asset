@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f91e86a228d432a9f0df4b3f56bb52, type: 3}
+  m_Name: PropAudioContainer
+  m_EditorClassIdentifier: 
+  _audioBundles:
+  - <AudioClip>k__BackingField: {fileID: 8300000, guid: d051c41d52e0b42ae9e88f47692c6f9e, type: 3}
+    <Subtitles>k__BackingField:
+    - text: Test
+      stopTime: 3.5
+  _isClipRandomized: 0
+  _isVolumeRandomized: 1
+  _volumeMin: 0.8
+  _volumeMax: 1
+  _volume: 1
+  _isPitchRandomized: 1
+  _pitchMin: 0.8
+  _pitchMax: 1
+  _pitch: 1

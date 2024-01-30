@@ -1,0 +1,27 @@
+{
+  "name": "com.etc.kettletools",
+  "displayName": "ETC - Kettle Tools",
+  "version": "0.0.4-preview",
+  "unity": "2022.3",
+  "description": "Tools for scene management, version control, and in-editor documentation for cross-team communication.\n\nDeveloped for collaboration within Building Virtual Worlds at the Entertainment Technology Center. Ideal for remote teams working on game jams.",
+  "keywords": [
+    "Kettle",
+    "KettleTools",
+    "BVW"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Ezra's BVW/ETC Tools",
+    "email": "elhill@andrew.cmu.edu",
+    "url": "https://docs.google.com/document/d/1yekteNVaSSQttd15nJHdDJXYe4FqVXIe_DH4OFJcCPc/edit"
+  },
+  "homepage": "https://help.etc.cmu.edu/xwiki/NEEDTOMAKEAPAGEFORTHIS",
+  "bugs": {
+    "url": "https://github.com/mobiusteapot/KettleTools/issues",
+    "email": "support@NeedASupportEmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:mobiusteapot/com.etc.kettletools.git"
+  }
+}

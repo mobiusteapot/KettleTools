@@ -1,0 +1,8 @@
+High:
+    FMOD support...?
+
+
+Low:
+    External Copy-Paste
+    Notion/Web integration?
+    Property Drawer for adding component arbitrarily?

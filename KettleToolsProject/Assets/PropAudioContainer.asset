@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f91e86a228d432a9f0df4b3f56bb52, type: 3}
   m_Name: PropAudioContainer
   m_EditorClassIdentifier: 
+  acProps:
+    _isClipRandomized: 0
+    _isVolumeRandomized: 0
+    _volumeMin: 0.8
+    _volumeMax: 1
+    _volume: 1
+    _isPitchRandomized: 0
+    _pitchMin: 0.8
+    _pitchMax: 1
+    _pitch: 1
+    HasPlayed: 00
+    HasPlayedCount: 0
   _audioBundles:
-  - <AudioClip>k__BackingField: {fileID: 8300000, guid: d051c41d52e0b42ae9e88f47692c6f9e, type: 3}
-    <Subtitles>k__BackingField:
-    - text: Test
-      stopTime: 3.5
-  _isClipRandomized: 0
-  _isVolumeRandomized: 1
-  _volumeMin: 0.8
-  _volumeMax: 1
-  _volume: 1
-  _isPitchRandomized: 1
-  _pitchMin: 0.8
-  _pitchMax: 1
-  _pitch: 1
+  - _audioClip: {fileID: 0}
+    _subtitles: []

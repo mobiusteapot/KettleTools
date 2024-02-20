@@ -1,0 +1,22 @@
+{
+    "name": "ETC.KT",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0c752da273b17c547ae705acf0f2adf2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.etc.kt.fmodaddon",
+            "expression": "0.0.0-preview",
+            "define": "KT_FMOD"
+        }
+    ],
+    "noEngineReferences": false
+}

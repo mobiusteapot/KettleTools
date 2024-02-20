@@ -1,0 +1,30 @@
+{
+  "name": "com.etc.kettletools.fmodaddon",
+  "displayName": "ETC - KettleTools FMOD Addon",
+  "version": "0.0.1-preview",
+  "unity": "2022.3",
+  "description": "FMOD addon for Kettle Tools",
+  "dependencies": {
+    "com.etc.kettletools": "0.0.3-preview"
+  },
+  "keywords": [
+    "KettleTools",
+    "Fmod",
+    "KTFMOD"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Kettle Tools FMOD Addon",
+    "email": "elhill@andrew.cmu.edu",
+    "url": "https://docs.google.com/document/d/1yekteNVaSSQttd15nJHdDJXYe4FqVXIe_DH4OFJcCPc/edit"
+  },
+  "homepage": "https://help.etc.cmu.edu/xwiki/NEEDTOMAKEAPAGEFORTHIS",
+  "bugs": {
+    "url": "https://github.com/mobiusteapot/KettleTools/issues",
+    "email": "support@NeedASupportEmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:mobiusteapot/com.etc.kettletools.git"
+  }
+}

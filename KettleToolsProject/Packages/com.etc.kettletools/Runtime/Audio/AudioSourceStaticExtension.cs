@@ -6,14 +6,14 @@ namespace ETC.KettleTools.Audio {
         /// <summary>
         /// Plays an audio source object. Respects audio container's volume, pitch, and randomization settings.
         /// </summary>
-        public static void PlayOneShot(this AudioSource audioSource, AudioContainer audioContainerObject)
+        public static void PlayOneShot(this AudioSource audioSource, AudioClipContainer audioContainerObject)
         {
-            audioContainerObject.PlayAudioOneshot(audioSource);
+            audioContainerObject.PlayAudioClipOneshot(audioSource);
         }
 
-        public static void Play(this AudioSource audioSource, AudioContainer audioContainerObject)
+        public static void Play(this AudioSource audioSource, AudioClipContainer audioContainerObject)
         {
-            audioContainerObject.PlayAudio(audioSource);
+            audioContainerObject.PlayAudioClip(audioSource);
         }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 namespace ETC.KettleTools.Audio {
-    // One container per TYPE of audio (so randomization can be invoked)
-    [CreateAssetMenu(fileName = "PropAudioContainer", menuName = "Audio/PropAudioContainer", order = 223)]
-    public class PropAudioContainer : AudioContainer {}
+    // One container per TYPE of audio, for organization (only voices have subtitles right now)
+    [CreateAssetMenu(fileName = "PropAudioContainer", menuName = "Audio/Prop Audio Container", order = 223)]
+    public class PropAudioClipContainer : AudioClipContainer {}
 }

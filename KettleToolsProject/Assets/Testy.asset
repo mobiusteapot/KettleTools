@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9499f1101e9c44253b3718a8e5e71a33, type: 3}
+  m_Name: Testy
+  m_EditorClassIdentifier: 
+  ParamsToApply: []
+  audioBundles:
+  - eventReference:
+      Guid:
+        Data1: 2057693425
+        Data2: 1120308930
+        Data3: 1091724724
+        Data4: 1436550054
+      Path: event:/Vehicles/Ride-on Mower
+    parameters:
+    - Name: 
+      Value: 4.29
+    subtitles: []
+  - eventReference:
+      Guid:
+        Data1: 1125158724
+        Data2: 1215768668
+        Data3: -380992089
+        Data4: 1039913086
+      Path: event:/Character/Door Close
+    parameters: []
+    subtitles:
+    - text: Hello is me
+      stopTime: 0
+  - eventReference:
+      Guid:
+        Data1: -2014691020
+        Data2: 1318977521
+        Data3: 1244236687
+        Data4: 595743019
+      Path: snapshot:/Health Low
+    parameters: []
+    subtitles:
+    - text: Test
+      stopTime: 3
+  RandomizeClips: 0
+  HasPlayed: 000000
+  HasPlayedCount: 0

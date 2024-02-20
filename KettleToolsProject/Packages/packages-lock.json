@@ -6,6 +6,14 @@
       "source": "embedded",
       "dependencies": {}
     },
+    "com.etc.kettletools.fmodaddon": {
+      "version": "file:com.etc.kt.fmodaddon",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.etc.kettletools": "0.0.3-preview"
+      }
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,

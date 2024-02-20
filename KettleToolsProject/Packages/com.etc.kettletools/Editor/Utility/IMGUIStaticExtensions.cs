@@ -1,5 +1,3 @@
-using UnityEngine;
-using UnityEditor;
 namespace ETC.KettleTools
 {
     public static class IMGUIStaticExtensions

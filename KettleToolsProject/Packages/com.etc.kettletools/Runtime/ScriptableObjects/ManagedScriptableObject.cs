@@ -9,8 +9,8 @@ namespace ETC.KettleTools {
 #endif
     public abstract class ManagedScriptableObject : ScriptableObject
     {
-        abstract protected void OnBegin();
-        abstract protected void OnEnd();
+        virtual protected void OnBegin() { }
+        virtual protected void OnEnd() { }
  
 #if UNITY_EDITOR
         protected void OnEnable()

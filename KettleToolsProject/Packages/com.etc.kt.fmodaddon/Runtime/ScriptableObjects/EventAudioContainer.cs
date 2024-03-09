@@ -2,57 +2,68 @@ using UnityEngine;
 using FMODUnity;
 
 namespace ETC.KettleTools.Audio.FMODAddon {
-    public abstract class EventAudioContainer : AudioContainer<EventReference> {
-        [SerializeField,ParamRef, Header("Parameters to apply to all audio bundles. Not implemented yet.")]
-        private ParamRef[] ParamsToApply;
+    [CreateAssetMenu(fileName = "EventAudioContainer", menuName = "FMOD Audio/Event Audio Container", order = 224)]
+    public class EventAudioContainer : AudioContainer<EventReference> {
         [SerializeField]
-        private EventAudioBundle[] audioBundles;
+        private EventAudioBundle audioBundle;
 
-        public bool RandomizeClips = false;
-        [HideInInspector]
-        public bool[] HasPlayed;
-        [HideInInspector]
-        public int HasPlayedCount = 0;
+        EventAudioContainerProperties ecProps;
+        // This should be obtained from a unique instance of the scriptable object. 
+
         protected override void OnBegin() {
             // Defaults to false
-            HasPlayed = new bool[audioBundles.Length];
+            InitializeFmodRuntime();
+        }
+        private void OnValidate() {
         }
         public override IAudioBundle<EventReference> GetAudioBundle()
         {
-            return RandomizeClips ? audioBundles[GetRandomIndex()] : audioBundles[0];
+            return audioBundle;
         }
+
         public override IAudioBundle<EventReference> GetAudioBundleByIndex(int index)
         {
-            if (index < 0 || index >= audioBundles.Length)
-            {
-                Debug.LogWarning("Index out of range: " + index);
-                return audioBundles[0];
-            }
-            return audioBundles[index];
+            return audioBundle;
         }
         protected override int GetRandomIndex()
         {
-            int randomIndex = Random.Range(0, audioBundles.Length);
-            if (HasPlayedCount <= audioBundles.Length)
-            {
-                HasPlayedCount = 0;
-                for (int i = 0; i < HasPlayed.Length; i++)
-                {
-                    HasPlayed[i] = false;
-                }
-            }
-            while (HasPlayed[randomIndex])
-            {
-                randomIndex = Random.Range(0, audioBundles.Length);
-            }
-            HasPlayed[randomIndex] = true;
-            HasPlayedCount++;
-            return randomIndex;
+            return 0;
+        }
+
+        public void StopAllClips() {
+            audioBundle.StopAudio();
+        }
+        public void PlayAllClips(Transform transform) {
+            throw new System.NotImplementedException();
+        }
+        public void SetParameterByEventIndex(int index, FMOD.Studio.PARAMETER_ID id, float value, bool ignoreseekspeed = false) {
+            throw new System.NotImplementedException();
+            audioBundle.SetParameter(name, value, ignoreseekspeed);
+        }
+        public void SetParameterByEventIndex(int index, string name, float value, bool ignoreseekspeed = false) {
+            throw new System.NotImplementedException();
+            audioBundle.SetParameter(name, value, ignoreseekspeed);
         }
 #if UNITY_EDITOR
     public override AudioClip GetAudioClipByIndex(int index) {
         throw new System.NotImplementedException();
     }
 #endif
+
+    #region FMOD Event Logic
+    private void InitializeFmodRuntime() {
+        RuntimeUtils.EnforceLibraryOrder();
+        if (ecProps.Preload)
+        {
+            audioBundle.PreloadSample();
+        }
+    }
+    // Instantiate on an object/it's transform when played
+
+    public void PlayEventOnObject(Transform transform) {
+        EventReference audio = GetAudioBundle().GetAudio();
+        RuntimeManager.PlayOneShot(audio, transform.position);
+    }
+    #endregion
     }
 }

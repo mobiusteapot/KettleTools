@@ -1,5 +1,7 @@
 namespace ETC.KettleTools.Audio {
-    public interface IAudioBundle<T> : IAudio<T>{
+    public interface IAudioBundle<T> {
         Subtitle[] GetSubtitles();
+        T GetAudio();
+        void StopAudio();
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class AudioContainerProperties {
+public class AudioClipContainerProperties {
         [SerializeField]
         private bool _isClipRandomized;
         public bool _isVolumeRandomized;

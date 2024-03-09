@@ -1,18 +1,13 @@
-using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
-using Codice.CM.Common;
 using System.Linq;
-namespace ETC.KettleTools
-{
+namespace ETC.KettleTools {
     public abstract class ConditionalSerializedProperty{
         public List<SerializedProperty> SerializedProperties;
-        public ConditionalSerializedProperty(params SerializedProperty[] serializedProperties)
-        {
+        public ConditionalSerializedProperty(params SerializedProperty[] serializedProperties) {
             SerializedProperties = serializedProperties.ToList();
         }
-        public void DrawProperties()
-        {
+        public void DrawProperties() {
             SerializedProperties.ForEach(p => EditorGUILayout.PropertyField(p));
         }
     }

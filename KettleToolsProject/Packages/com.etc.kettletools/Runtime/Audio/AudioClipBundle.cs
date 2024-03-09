@@ -17,6 +17,10 @@ namespace ETC.KettleTools.Audio
         // Get Audio interface implementation
         public AudioClip GetAudio() => _audioClip;   
         public Subtitle[] GetSubtitles() => _subtitles;
+        // Todo: Make this stop the audio clip
+        public void StopAudio(){
+            throw new System.NotImplementedException();
+        }
 
     }
 }

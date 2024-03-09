@@ -434,11 +434,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 209937332
-      Data2: 1335632815
-      Data3: 1359563695
-      Data4: -2072128577
-    Path: event:/Vehicles/Car Engine
+      Data1: 526938424
+      Data2: 1089855596
+      Data3: -128471909
+      Data4: -739394485
+    Path: event:/Weapons/Explosion
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -446,14 +446,10 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   AllowNonRigidbodyDoppler: 0
-  Params:
-  - Name: RPM
-    Value: 986
-  - Name: Load
-    Value: -0.155
+  Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideMaxDistance: 100
 --- !u!1 &1221133055
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,30 +690,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  eventAudioContainer: {fileID: 11400000, guid: 089ac037a4446489fbccd1a4b953da34, type: 2}
+  eventAudioContainer: {fileID: 11400000, guid: 2bf4d8df27de742199e37f3c2a4b8f92, type: 2}
   UseGameEvents: 0
-  EventReference:
-    Guid:
-      Data1: 2057693425
-      Data2: 1120308930
-      Data3: 1091724724
-      Data4: 1436550054
-    Path: event:/Vehicles/Ride-on Mower
-  Event: 
+  playbackType: 1
+  EventIndex: 0
   PlayEvent: 0
   StopEvent: 0
-  AllowFadeout: 1
   TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params:
-  - Name: Load
-    Value: -1
-  - Name: RPM
-    Value: 0
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  hasTriggered: 0
 --- !u!4 &1954657641
 Transform:
   m_ObjectHideFlags: 0

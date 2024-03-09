@@ -2,6 +2,7 @@
     "name": "ETC.KT.FMODAddon.Editor",
     "rootNamespace": "",
     "references": [
+        "GUID:a791707b69bd212489a9f4e7fc5ca1e1",
         "GUID:a11ab4228b86c42288414a39c8905267",
         "GUID:e060507735a354e5c87fb6568bfdd102",
         "GUID:0c752da273b17c547ae705acf0f2adf2",

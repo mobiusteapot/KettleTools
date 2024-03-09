@@ -13,12 +13,12 @@ namespace ETC.KettleTools.Tests
     public class SceneManagementLoadsReadme
     {
         //Todo: Create readme, create scene object, bind them, verify it shows up, then clean up?
-        PropAudioClipContainer propAudioContainer;
+        AudioClipContainer propAudioContainer;
         private GUID _containerGUID;
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            propAudioContainer = ScriptableObject.CreateInstance<PropAudioClipContainer>();
+            propAudioContainer = ScriptableObject.CreateInstance<AudioClipContainer>();
             const string assetPath = "Assets/NewScriptableObject.asset";
             AssetDatabase.CreateAsset(propAudioContainer, assetPath);
             AssetDatabase.SaveAssets();

@@ -3,10 +3,14 @@ using UnityEngine;
 namespace ETC.KettleTools.Audio
 {
     // Container class for traditional unity AudioClip and AudioSource types of audio playback
-    public abstract class AudioClipContainer : AudioContainer<AudioClip>
+    [CreateAssetMenu(fileName = "AudioClipContainer", menuName = "Audio/AudioClipContainer", order = 223)]
+    public class AudioClipContainer : AudioContainer<AudioClip>
     {
+        #if UNITY_EDITOR
+        [SerializeField] private AudioContainerType containerType;
+        #endif
         [SerializeField]
-        protected AudioContainerProperties acProps;
+        protected AudioClipContainerProperties acProps;
         [SerializeField]
         private AudioClipBundle[] _audioBundles;
 

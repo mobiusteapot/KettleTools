@@ -1,6 +1,8 @@
-namespace ETC.KettleTools
+using UnityEditor;
+
+namespace ETC.KettleTools.EditorExtensions
 {
-    public static class IMGUIStaticExtensions
+    public static class KTEditorGUI
     {
         /// <summary>
         /// If true, draws the trueProperties, and if false, draws the falseProperties.

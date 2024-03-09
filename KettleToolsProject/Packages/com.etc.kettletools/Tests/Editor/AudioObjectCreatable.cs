@@ -10,7 +10,7 @@ namespace ETC.KettleTools.Audio.Tests
     [Description("Verifies that a prop audio container is creatable")]
     public class AudioObjectCreatable
     {
-        PropAudioClipContainer propAudioContainer;
+        AudioClipContainer audioClipContainer;
         private GUID _containerGUID;
         // Todo: Can use this basic set up to check more things about this type of scriptable object
         // Todo: Check no repeats on audio? Create scriptable object, set audio via serialization interface, play sounds (silently), check?
@@ -18,15 +18,15 @@ namespace ETC.KettleTools.Audio.Tests
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            propAudioContainer = ScriptableObject.CreateInstance<PropAudioClipContainer>();
+            audioClipContainer = ScriptableObject.CreateInstance<AudioClipContainer>();
             const string assetPath = "Assets/NewScriptableObject.asset";
-            AssetDatabase.CreateAsset(propAudioContainer, assetPath);
+            AssetDatabase.CreateAsset(audioClipContainer, assetPath);
             AssetDatabase.SaveAssets();
             _containerGUID = AssetDatabase.GUIDFromAssetPath(assetPath);
 
             EditorUtility.FocusProjectWindow();
 
-            Selection.activeObject = propAudioContainer;
+            Selection.activeObject = audioClipContainer;
         }
 
         static IEnumerable<string> AudioContainerMenuItemProvider()

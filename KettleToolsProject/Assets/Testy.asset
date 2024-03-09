@@ -47,6 +47,4 @@ MonoBehaviour:
     subtitles:
     - text: Test
       stopTime: 3
-  RandomizeClips: 0
-  HasPlayed: 000000
-  HasPlayedCount: 0
+  InstanceTransform: {fileID: 0}

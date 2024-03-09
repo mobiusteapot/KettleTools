@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9f91e86a228d432a9f0df4b3f56bb52, type: 3}
-  m_Name: PropAudioContainer
+  m_Script: {fileID: 11500000, guid: 6a488bbad98f54c4fbabd6e1ea253f78, type: 3}
+  m_Name: Testy 2
   m_EditorClassIdentifier: 
+  containerType: {fileID: 11400000, guid: ad3b54d2cca3e46dfbcb1ce84cb70722, type: 2}
   acProps:
     _isClipRandomized: 0
     _isVolumeRandomized: 0
@@ -22,7 +23,7 @@ MonoBehaviour:
     _pitchMin: 0.8
     _pitchMax: 1
     _pitch: 1
-    HasPlayed: 00
+    HasPlayed: 
     HasPlayedCount: 0
   _audioBundles:
   - _audioClip: {fileID: 0}

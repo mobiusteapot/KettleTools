@@ -2,16 +2,18 @@ using System;
 using System.Reflection;
 using UnityEngine;
 using UnityEditor;
+using ETC.KettleTools.EditorExtensions;
 
 namespace ETC.KettleTools.Audio {
     [CanEditMultipleObjects]
     [CustomEditor(typeof(AudioClipContainer))]
-    public abstract class AudioClipContainerEditor : Editor
+    public class AudioClipContainerEditor : Editor
     {
         // Only character audio containers should have subtitles
         public bool DrawSubtitles = false;
         // Only FMOD audio containers should control pitch
         public bool DrawPitch = false;
+        SerializedProperty containerType;
         SerializedProperty audioBundle;
         SerializedProperty acProps;
         SerializedProperty isClipRandomized;
@@ -32,6 +34,7 @@ namespace ETC.KettleTools.Audio {
         int audioContainerArraySize;
 
         private void OnEnable() {
+            containerType = serializedObject.FindProperty("containerType");
             audioBundle = serializedObject.FindProperty("_audioBundles");
             acProps = serializedObject.FindProperty("acProps");
             isClipRandomized = acProps.FindPropertyRelative("_isClipRandomized");
@@ -48,7 +51,8 @@ namespace ETC.KettleTools.Audio {
             serializedObject.ApplyModifiedProperties();
         }
         public override void OnInspectorGUI() {
-
+            serializedObject.Update();
+            EditorGUILayout.PropertyField(containerType);
             using (new EditorGUILayout.HorizontalScope()) {
                 EditorGUILayout.LabelField("Audio Bundles");
                 audioBundle.arraySize = EditorGUILayout.IntField(audioBundle.arraySize, GUILayout.Width(20));
@@ -87,9 +91,10 @@ namespace ETC.KettleTools.Audio {
 
             EditorGUILayout.PropertyField(isClipRandomized);
             EditorGUILayout.PropertyField(isVolumeRandomized);
-            IMGUIStaticExtensions.ConditionalPropertyField(isVolumeRandomized.boolValue, new (volumeMin, volumeMax), new (volume));
+            KTEditorGUI.ConditionalPropertyField(isVolumeRandomized.boolValue, new (volumeMin, volumeMax), new (volume));
             EditorGUILayout.PropertyField(isPitchRandomized);
-            IMGUIStaticExtensions.ConditionalPropertyField(isPitchRandomized.boolValue, new (pitchMin, pitchMax), new (pitch));
+            KTEditorGUI.ConditionalPropertyField(isPitchRandomized.boolValue, new (pitchMin, pitchMax), new (pitch));
+            serializedObject.ApplyModifiedProperties();
         }
         // Use reflection to play or stop audio clips for in-editor previewing
         public static void PlayClip(AudioClip clip) {

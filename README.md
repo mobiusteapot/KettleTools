@@ -4,4 +4,4 @@
 Tools for scene management, version control, and in-editor documentation for cross-team communication.
 <br>
 <br>
-Developed for collaboration within Building Virtual Worlds at the Entertainment Technology Center. Ideal for remote teams working on game jams.
+Developed for collaboration and communication within Building Virtual Worlds at the Entertainment Technology Center. Ideal for remote teams working on game jams.

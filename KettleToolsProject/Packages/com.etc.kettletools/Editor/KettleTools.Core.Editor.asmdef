@@ -1,5 +1,5 @@
 {
-    "name": "ETC.KettleTools.Editor",
+    "name": "KettleTools.Core.Editor",
     "rootNamespace": "",
     "references": [
         "GUID:a791707b69bd212489a9f4e7fc5ca1e1"

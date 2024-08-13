@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.etc.kettletools": {
+    "com.mobtp.kt.core": {
       "version": "file:com.etc.kettletools",
       "depth": 0,
       "source": "embedded",

@@ -5,6 +5,7 @@ using System.Reflection;
 
 namespace ETC.KettleTools.Documentation {
     public static class ReadmeEditorExtensions {
+        private const float maxImageWidth = 512f;
         public static void DrawReadmeSections(this Readme readme) {
             bool isBlank = true;
             if (readme == null || readme.IsInitalized == false) return;
@@ -21,16 +22,23 @@ namespace ETC.KettleTools.Documentation {
                 }
             }
             foreach (var section in readme.sections) {
-                if (!string.IsNullOrEmpty(section.heading)) {
-                    GUILayout.Label(section.heading, readme.HeadingStyle);
+                if (!string.IsNullOrEmpty(section.Heading)) {
+                    GUILayout.Label(section.Heading, readme.HeadingStyle);
                 }
-                if (!string.IsNullOrEmpty(section.text)) {
-                    GUILayout.Label(section.text, readme.BodyStyle);
+                if (!string.IsNullOrEmpty(section.Text)) {
+                    GUILayout.Label(section.Text, readme.BodyStyle);
                 }
-                if (!string.IsNullOrEmpty(section.linkText)) {
-                    if (readme.LinkLabel(new GUIContent(section.linkText))) {
-                        Application.OpenURL(section.url);
+                if (!string.IsNullOrEmpty(section.LinkText)) {
+                    if (readme.LinkLabel(new GUIContent(section.LinkText))) {
+                        Application.OpenURL(section.Url);
                     }
+                }
+                if(section.Image != null && section.Image.texture != null){
+                    // Draw image size dynamically, normalized to the inspector window
+                    // Image should be centered and have a maximum width
+                    var width = Mathf.Min(maxImageWidth, EditorGUIUtility.currentViewWidth - 40f);
+                    var height = width / section.Image.texture.width * section.Image.texture.height;
+                    GUILayout.Label(section.Image.texture, GUILayout.Width(width), GUILayout.Height(height));
                 }
                 GUILayout.Space(20f);
             }

@@ -13,13 +13,15 @@ namespace ETC.KettleTools.Documentation {
         public string title;
         public List<Section> sections = new List<Section>();
 
+            // Todo: Make a custom inspector for "edit" mode instead of the current debug mode paradigm
+            // Todo: Add rendering to canvas or screen
         [Serializable]
         public class Section {
-            public string heading;
-            // Todo: Make a custom inspector for "edit" mode instead of the current debug mode paradigm
+            public string Heading;
             [TextArea]
-            public string text;
-            public string linkText, url;
+            public string Text;
+            public string LinkText, Url;
+            public Sprite Image;
         }
         public void Reset() {
             Init();

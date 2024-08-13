@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c2c52775621154bb0d32ee728f5459, type: 3}
   m_Name: TestNoReadmeSceneSceneData
   m_EditorClassIdentifier: 
-  readme: {fileID: 0}
+  readme: {fileID: 11400000, guid: a28fdd57183e74ac9a04898fd3b18221, type: 2}
   showSceneReadmeSetting: 2

@@ -4,9 +4,6 @@
 Tools for scene management, version control, and in-editor documentation for team communication.
 <br>
 <br>
-Developed for collaboration and communication within Building Virtual Worlds at the Entertainment Technology Center. Ideal for remote teams working on game jams.
+Developed for collaboration and communication within Building Virtual Worlds at the Entertainment Technology Center. 
 
-
-Note - I'm planning on continuing to update this, but making a fork for use within BVW from this version, and keeping that on the UPM server would be ideal. I'll be updating here: https://github.com/mobiusteapot/KettleTools/tree/release
-
-Feel free to mirror or fork any changes back in as you see fit.
+Ideal for small teams with a need for asynchronous communication, or developers creating templates and intermediary content.

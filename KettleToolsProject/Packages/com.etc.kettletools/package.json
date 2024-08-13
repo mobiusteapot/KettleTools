@@ -1,7 +1,7 @@
 {
   "name": "com.etc.kettletools",
   "displayName": "ETC - Kettle Tools",
-  "version": "0.0.4-preview",
+  "version": "0.0.5-preview",
   "unity": "2022.3",
   "description": "Tools for scene management, version control, and in-editor documentation for cross-team communication.\n\nDeveloped for collaboration within Building Virtual Worlds at the Entertainment Technology Center. Ideal for remote teams working on game jams.",
   "keywords": [

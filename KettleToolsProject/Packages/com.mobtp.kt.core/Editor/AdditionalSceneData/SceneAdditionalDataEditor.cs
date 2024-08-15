@@ -21,6 +21,7 @@ namespace Mobtp.KettleTools.Scenes {
                     }
                 } while (iterator.NextVisible(false));
             }
-        }   
+            serializedObject.ApplyModifiedProperties();
+        }
     }
 }

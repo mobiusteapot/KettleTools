@@ -3,6 +3,7 @@ using UnityEditor;
 namespace Mobtp.KettleTools.Scenes {
     [CustomEditor(typeof(SceneAdditionalData), true)]
     public class SceneAdditionalDataEditor : Editor {
+        // Todo: Something with readme popup is causing scenes to get flagged as edited when a scene readme is opened!
         SerializedProperty readmeProp;
         SerializedProperty showSceneReadmeProp;
         void OnEnable(){

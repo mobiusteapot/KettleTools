@@ -16,6 +16,11 @@ namespace Mobtp.KT.Core.Documentation
         public float BodyFontSize = 16f;
         public float HeaderWidth = 250f;
         public float BodyWidth = 250f;
+
+        public bool OverrideImageWidth = false;
+        public bool OverrideImageHeight = false;
+        public float ImageWidth = 250f;
+        public float ImageHeight = 250f;
         
         [Header("Additional Font Settings")]
         public TMP_FontAsset FontAsset;

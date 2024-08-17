@@ -140,7 +140,26 @@ namespace Mobtp.KT.Core.Documentation {
                     {
                         Heading = line.Substring(2)
                     };
-                } // Parse links "Github Readme style" where if there is a statement in brackets[] then parenthesis at the end() assume the brackets are the link text and the parenthsis is the url
+                } // Parse images as Markdown where if there is an ! then brackets[] assume the brackets are the alt text and the parenthesis() is the url
+                else if (line.Contains("!") && line.Contains("[") && line.Contains("]")){
+                    int altStart = line.IndexOf("![");
+                    int altEnd = line.IndexOf("]");
+                    int urlStart = line.IndexOf("(");
+                    int urlEnd = line.IndexOf(")");
+                    if (altStart < urlStart && urlStart < urlEnd && urlEnd < line.Length)
+                    {
+                        if (currentSection != null)
+                        {
+                            currentSection.Text += line.Substring(0, altStart);
+                            currentSection.Image = AssetDatabase.LoadAssetAtPath<Sprite>(line.Substring(urlStart + 1, urlEnd - urlStart - 1));
+                        }
+                    }
+                    else if (currentSection != null)
+                    {
+                        currentSection.Text += line + "\n";
+                    }
+                }
+                 // Parse links as Markdown where if there is a statement in brackets[] then parenthesis at the end() assume the brackets are the link text and the parenthsis is the url
                 else if(line.Contains("[") && line.Contains("]"))
                 {
                     int linkStart = line.IndexOf("[");

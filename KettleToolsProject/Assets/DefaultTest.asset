@@ -10,57 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7e3382aa39c0d94e94a2f4519cc8ac8, type: 3}
-  m_Name: TestReadme
+  m_Name: DefaultTest
   m_EditorClassIdentifier: 
   TextType: 1
   ExternalText: {fileID: 4900000, guid: 576a347eaa7f1451bb880b992a68b899, type: 3}
   IsLocked: 0
   Icon: {fileID: 0}
-  Title: 
+  Title: Readme
   Sections:
   - Heading: Readme Objects
-    Text: 'Readme objects can be displayed in a number of ways, or simply left in
-      the editor for team members to read.
-
-
-'
-    LinkText: 
-    Url: 
-    Image: {fileID: 0}
-  - Heading: Readme Components
-    Text: 'Readmes can be attached to a Readme component to display on a relevant
-      game object. These will be stripped on build.
-
-
-'
-    LinkText: 
-    Url: 
-    Image: {fileID: 0}
-  - Heading: Readme Folders
-    Text: 'Readmes can be attached directly to a folder, and will be drawn in the
-      inspector when the folder is selected. These can be used to convey what the
-      purpose of a given folder is.
-
-
-'
-    LinkText: 
-    Url: 
-    Image: {fileID: 0}
-  - Heading: Readmes on Scenes
-    Text: 'Readmes can be displayed when a scene is selected, or when a scene is
-      open. To do this, press "Create Additional Scene Data" when a scene object
-      is selected.
-
-
-'
-    LinkText: 
-    Url: 
-    Image: {fileID: 0}
-  - Heading: Readmes on Canvases
-    Text: 'Readmes can be used to generate information on a Canvas using the "Canvas
-      Readme Display" component. Attach this to any child object in a Canvas, and
-      select the "Update Canvas From Readme" option to generate the canvas, or update
-      the text components if your Canvas has changed.
+    Text: 'Lorem ipsum
 
 
 '
@@ -72,17 +31,11 @@ MonoBehaviour:
       "Debug Mode". The IsLocked bool value can then be disabled, to unlock the readme
       again.
 
-'
-    LinkText: 
-    Url: 
-    Image: {fileID: 21300000, guid: 3564de2522fb046a3aa805a09b0d3ec1, type: 3}
-  - Heading: 
-    Text: '
 
 '
     LinkText: 
     Url: 
-    Image: {fileID: 21300000, guid: 2c7c784c034e046c89d8c66c2706693d, type: 3}
+    Image: {fileID: 0}
   - Heading: Internal vs. External
     Text: 'Internal readmes are stored entirely in the Unity object, and can be modified
       from within the inspector.
@@ -106,7 +59,7 @@ MonoBehaviour:
       the external readme remains unchanged, the path will stay updated.
 
 
-'
+      !'
     LinkText: 
     Url: 
     Image: {fileID: 21300000, guid: c49ca18ae97c040fe95fbebce05e5367, type: 3}
@@ -124,7 +77,7 @@ MonoBehaviour:
     m_Active:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
-      m_TextColor: {r: 0.29803923, g: 0.49411765, b: 1, a: 1}
+      m_TextColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
@@ -140,7 +93,7 @@ MonoBehaviour:
     m_OnActive:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
-      m_TextColor: {r: 0.29803923, g: 0.49411765, b: 1, a: 1}
+      m_TextColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
@@ -191,7 +144,7 @@ MonoBehaviour:
     m_Active:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
-      m_TextColor: {r: 0.29803923, g: 0.49411765, b: 1, a: 1}
+      m_TextColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
@@ -207,7 +160,7 @@ MonoBehaviour:
     m_OnActive:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
-      m_TextColor: {r: 0.29803923, g: 0.49411765, b: 1, a: 1}
+      m_TextColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
@@ -258,7 +211,7 @@ MonoBehaviour:
     m_Active:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
-      m_TextColor: {r: 0.29803923, g: 0.49411765, b: 1, a: 1}
+      m_TextColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
@@ -274,7 +227,7 @@ MonoBehaviour:
     m_OnActive:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
-      m_TextColor: {r: 0.29803923, g: 0.49411765, b: 1, a: 1}
+      m_TextColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
@@ -325,7 +278,7 @@ MonoBehaviour:
     m_Active:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
-      m_TextColor: {r: 0.29803923, g: 0.49411765, b: 1, a: 1}
+      m_TextColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
@@ -341,7 +294,7 @@ MonoBehaviour:
     m_OnActive:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
-      m_TextColor: {r: 0.29803923, g: 0.49411765, b: 1, a: 1}
+      m_TextColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
@@ -398,7 +351,7 @@ MonoBehaviour:
     m_Focused:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
-      m_TextColor: {r: 0.8235294, g: 0.8235294, b: 0.8235294, a: 1}
+      m_TextColor: {r: 0.93333334, g: 0.93333334, b: 0.93333334, a: 1}
     m_OnNormal:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds:
@@ -412,11 +365,11 @@ MonoBehaviour:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds:
       - {fileID: 3873134771094927043, guid: 0000000000000000d000000000000000, type: 0}
-      m_TextColor: {r: 0.8784314, g: 0.8784314, b: 0.8784314, a: 1}
+      m_TextColor: {r: 0.93333334, g: 0.93333334, b: 0.93333334, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
-      m_TextColor: {r: 0.8784314, g: 0.8784314, b: 0.8784314, a: 1}
+      m_TextColor: {r: 0.93333334, g: 0.93333334, b: 0.93333334, a: 1}
     m_Border:
       m_Left: 6
       m_Right: 6

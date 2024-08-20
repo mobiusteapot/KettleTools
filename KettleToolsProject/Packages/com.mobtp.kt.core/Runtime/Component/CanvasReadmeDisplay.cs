@@ -14,6 +14,8 @@ namespace Mobtp.KT.Core.Documentation {
 
     [RequireComponent(typeof(CanvasRenderer), typeof(RectTransform))]
     public class CanvasReadmeDisplay : MonoBehaviour {
+        // All population should be done in editor, no runtime access of any kind should occur
+        #if UNITY_EDITOR
         #if PACKAGE_TEXTMESHPRO
         public CanvasReadmeSettings Settings;
         [SerializeField] private Readme readme;
@@ -140,6 +142,7 @@ namespace Mobtp.KT.Core.Documentation {
         rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
         rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
     }
+    #endif
     #endif
     }
 }

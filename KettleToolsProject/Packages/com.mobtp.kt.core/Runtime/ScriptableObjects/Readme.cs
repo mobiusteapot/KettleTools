@@ -123,7 +123,7 @@ namespace Mobtp.KT.Core.Docs {
             Section currentSection = null;
 
             foreach (string line in lines) {
-                if (line.StartsWith("# ")) {
+                if (line.StartsWith("#")) {
                     if (currentSection != null) {
                         Sections.Add(currentSection);
                     }

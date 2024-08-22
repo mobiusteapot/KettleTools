@@ -128,7 +128,7 @@ namespace Mobtp.KT.Core.Docs {
                         Sections.Add(currentSection);
                     }
                     currentSection = new Section {
-                        Heading = line.Substring(2)
+                        Heading = line.Substring(1)
                     };
                 } // Parse images as Markdown where if there is an ! then brackets[] assume the brackets are the alt text and the parenthesis() is the url
                 else if (line.Contains("!") && line.Contains("[") && line.Contains("]")) {

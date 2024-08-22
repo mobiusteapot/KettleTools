@@ -1,7 +1,7 @@
 {
   "name": "com.mobtp.kt.core",
   "displayName": "Kettle Tools Core",
-  "version": "0.2.3-preview",
+  "version": "0.3.0-preview",
   "unity": "2020.1",
   "description": "Tools for scene management, version control, and in-editor documentation for cross-team communication.\n\nDeveloped for collaboration within Building Virtual Worlds at the Entertainment Technology Center. Ideal for remote teams working on game jams.",
   "keywords": [

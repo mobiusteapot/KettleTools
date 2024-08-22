@@ -3,7 +3,7 @@ using UnityEditor;
 using System;
 using System.Reflection;
 
-namespace Mobtp.KT.Core.Documentation {
+namespace Mobtp.KT.Core.Docs {
     public static class ReadmeEditorExtensions {
         private const float maxImageWidth = 512f;
         public static void DrawReadmeSections(this Readme readme) {

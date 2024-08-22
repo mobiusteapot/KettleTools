@@ -3,12 +3,10 @@ using UnityEngine;
 using TMPro;
 #endif
 
-namespace Mobtp.KT.Core.Documentation
-{
+namespace Mobtp.KT.Core.Docs {
 
     [System.Serializable]
-    public class CanvasReadmeSettings
-    {
+    public class CanvasReadmeSettings {
         #if PACKAGE_TEXTMESHPRO
         public float SectionSpacing = 24f;
         public float HeaderSpacing = 36f;
@@ -33,8 +31,7 @@ namespace Mobtp.KT.Core.Documentation
             +"In most cases changes should be done to the readme itself to prevent accidental overriding.")]
         public bool NotEditable = true;
 
-        public void ApplySettings(ref TextMeshProUGUI textComponent, bool isHeader)
-        {
+        public void ApplySettings(ref TextMeshProUGUI textComponent, bool isHeader) {
             textComponent.font = FontAsset;
             textComponent.fontSize = isHeader ? HeadingFontSize : BodyFontSize;
             textComponent.alignment = Alignment;

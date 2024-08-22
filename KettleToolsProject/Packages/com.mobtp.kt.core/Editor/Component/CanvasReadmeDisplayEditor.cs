@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace Mobtp.KT.Core.Documentation
+namespace Mobtp.KT.Core.Docs
 {
     [CustomEditor(typeof(CanvasReadmeDisplay))]
     public class CanvasReadmeDisplayEditor : Editor

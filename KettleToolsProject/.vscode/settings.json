@@ -52,5 +52,6 @@
         "Temp/": true
     },
     "dotnet.preferCSharpExtension": true,
-    "dotnet.defaultSolution": "KettleToolsProject.sln"
+    "dotnet.defaultSolution": "KettleToolsProject.sln",
+    "editorconfig.generateAuto": false
 }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Mobtp.KT.Core.Documentation;
+using Mobtp.KT.Core.Docs;
 
 namespace Mobtp.KettleTools.Scenes {
 public class SceneAdditionalData : ScriptableObject {

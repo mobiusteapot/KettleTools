@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Mobtp.KT.Core.Documentation {
+namespace Mobtp.KT.Core.Docs {
     [CustomEditor(typeof(ReadmeComponent))]
     public class ReadmeComponentEditor : UnityEditor.Editor {
         private SerializedProperty readme;

@@ -4,7 +4,7 @@ using NUnit.Framework;
 using UnityEditor;
 using UnityEngine;
 
-namespace Mobtp.KT.Core.Documentation.Tests
+namespace Mobtp.KT.Core.Docs.Tests
 {
     [TestFixture]
     [Description("Verifies that a readme is created and can be attached to a component")]

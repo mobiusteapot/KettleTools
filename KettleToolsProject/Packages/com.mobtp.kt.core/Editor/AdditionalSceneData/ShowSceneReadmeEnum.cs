@@ -1,5 +1,5 @@
 using System;
-using Mobtp.KT.Core.Documentation;
+using Mobtp.KT.Core.Docs;
 namespace Mobtp.KettleTools.Scenes {
     [Flags]
     public enum SceneReadmeVisibility {

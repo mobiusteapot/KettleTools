@@ -1,4 +1,4 @@
-namespace Mobtp.KT.Core.Documentation
+namespace Mobtp.KT.Core.Docs
 {
     public enum ReadmeTextType
     {

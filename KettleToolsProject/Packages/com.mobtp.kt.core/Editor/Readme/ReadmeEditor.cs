@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-namespace Mobtp.KT.Core.Documentation {
+namespace Mobtp.KT.Core.Docs {
     [CustomEditor(typeof(Readme), true)]
     public class ReadmeEditor : Editor {
         private SerializedProperty IsLocked;

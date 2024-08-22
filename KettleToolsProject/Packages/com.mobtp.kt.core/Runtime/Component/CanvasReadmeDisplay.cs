@@ -10,7 +10,7 @@ using System.Collections.Generic;
 /// Utility script to display a readme on a canvas.
 /// Not included if the TextMeshPro package is not installed. 
 /// </summary>
-namespace Mobtp.KT.Core.Documentation {
+namespace Mobtp.KT.Core.Docs {
 
     [RequireComponent(typeof(CanvasRenderer), typeof(RectTransform))]
     public class CanvasReadmeDisplay : MonoBehaviour {

@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
-using Mobtp.KT.Core.Documentation;
+using Mobtp.KT.Core.Docs;
 
 namespace Mobtp.KettleTools.Scenes {
     [InitializeOnLoad]

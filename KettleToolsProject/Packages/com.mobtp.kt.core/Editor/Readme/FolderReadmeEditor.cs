@@ -2,7 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace Mobtp.KT.Core.Documentation {
+namespace Mobtp.KT.Core.Docs {
     [CustomEditor(typeof(DefaultAsset))]
     public class FolderReadmeEditor : UnityEditor.Editor {
         // Draw default inspector

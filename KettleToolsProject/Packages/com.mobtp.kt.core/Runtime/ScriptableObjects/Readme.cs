@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-namespace Mobtp.KT.Core.Documentation {
+namespace Mobtp.KT.Core.Docs {
     [CreateAssetMenu(fileName = "Readme", menuName = "Readme", order = 202)]
     public class Readme : ScriptableObject {
         // Pragma is necessary to ensure no readme object data gets included on build in any capacity
@@ -103,92 +103,73 @@ namespace Mobtp.KT.Core.Documentation {
             EditorUtility.SetDirty(this);
         }
 
-        public void RefreshExternalText()
-        {
-            if (TextType == ReadmeTextType.External)
-            {
-                if (ExternalText != null)
-                {
+        public void RefreshExternalText() {
+            if (TextType == ReadmeTextType.External) {
+                if (ExternalText != null) {
                     Sections.Clear();
                     ParseExternalText(ExternalText.text);
                 } 
-                else 
-                {
+                else {
                     Debug.LogError("No text file found.");
                 }
             } 
-            else 
-            {
+            else {
                 Debug.LogWarning("Text not set to external, cannot refresh.");
             }
         }
 
-        private void ParseExternalText(string text)
-        {
+        private void ParseExternalText(string text) {
             string[] lines = text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
             Section currentSection = null;
 
-            foreach (string line in lines)
-            {
-                if (line.StartsWith("# "))
-                {
-                    if (currentSection != null)
-                    {
+            foreach (string line in lines) {
+                if (line.StartsWith("# ")) {
+                    if (currentSection != null) {
                         Sections.Add(currentSection);
                     }
-                    currentSection = new Section
-                    {
+                    currentSection = new Section {
                         Heading = line.Substring(2)
                     };
                 } // Parse images as Markdown where if there is an ! then brackets[] assume the brackets are the alt text and the parenthesis() is the url
-                else if (line.Contains("!") && line.Contains("[") && line.Contains("]")){
+                else if (line.Contains("!") && line.Contains("[") && line.Contains("]")) {
                     int altStart = line.IndexOf("![");
                     int altEnd = line.IndexOf("]");
                     int urlStart = line.IndexOf("(");
                     int urlEnd = line.IndexOf(")");
-                    if (altStart < urlStart && urlStart < urlEnd && urlEnd < line.Length)
-                    {
-                        if (currentSection != null)
-                        {
+                    if (altStart < urlStart && urlStart < urlEnd && urlEnd < line.Length) {
+                        if (currentSection != null) {
                             currentSection.Text += line.Substring(0, altStart);
                             currentSection.Image = AssetDatabase.LoadAssetAtPath<Sprite>(line.Substring(urlStart + 1, urlEnd - urlStart - 1));
                         }
                     }
-                    else if (currentSection != null)
-                    {
+                    else if (currentSection != null) {
                         currentSection.Text += line + "\n";
                     }
                 }
                  // Parse links as Markdown where if there is a statement in brackets[] then parenthesis at the end() assume the brackets are the link text and the parenthsis is the url
-                else if(line.Contains("[") && line.Contains("]"))
-                {
+                else if(line.Contains("[") && line.Contains("]")) {
                     int linkStart = line.IndexOf("[");
                     int linkEnd = line.IndexOf("]");
                     int urlStart = line.IndexOf("(");
                     int urlEnd = line.IndexOf(")");
 
-                    if (linkStart < urlStart && urlStart < urlEnd && urlEnd < line.Length)
-                    {
-                        if (currentSection != null)
-                        {
+                    if (linkStart < urlStart && urlStart < urlEnd && urlEnd < line.Length) {
+                        if (currentSection != null) {
                             currentSection.Text += line.Substring(0, linkStart);
                             currentSection.LinkText = line.Substring(linkStart + 1, linkEnd - linkStart - 1);
                             currentSection.Url = line.Substring(urlStart + 1, urlEnd - urlStart - 1);
                         }
                     }
-                    else if (currentSection != null)
-                    {
+                    else if (currentSection != null) {
                         currentSection.Text += line + "\n";
                     }
                 }
-                else if (currentSection != null)
-                {
+                else if (currentSection != null) {
                     currentSection.Text += line + "\n";
                 }
             }
 
-            if (currentSection != null)
-            {
+            if (currentSection != null) {
                 Sections.Add(currentSection);
             }
         }

@@ -3,45 +3,37 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-namespace Mobtp.KettleTools {
+namespace Mobtp.KettleTools.Core {
 #if UNITY_EDITOR
     [InitializeOnLoad]
 #endif
-    public abstract class ManagedScriptableObject : ScriptableObject
-    {
+    public abstract class ManagedScriptableObject : ScriptableObject {
         abstract protected void OnBegin();
         abstract protected void OnEnd();
  
 #if UNITY_EDITOR
-        protected void OnEnable()
-        {
+        protected void OnEnable() {
             EditorApplication.playModeStateChanged += OnPlayStateChange;
         }
  
-        protected void OnDisable()
-        {
+        protected void OnDisable() {
             EditorApplication.playModeStateChanged -= OnPlayStateChange;
         }
  
-        void OnPlayStateChange(PlayModeStateChange state)
-        {
-            if(state == PlayModeStateChange.EnteredPlayMode)
-            {
+        void OnPlayStateChange(PlayModeStateChange state) {
+            if(state == PlayModeStateChange.EnteredPlayMode) {
                 OnBegin();
             }
-            else if(state == PlayModeStateChange.ExitingPlayMode)
-            {
+            else if(state == PlayModeStateChange.ExitingPlayMode) {
                 OnEnd();
             }
         }
 #else
-        protected void OnEnable()
-        {
+        protected void OnEnable() {
             OnBegin();
         }
  
-        protected void OnDisable()
-        {
+        protected void OnDisable() {
             OnEnd();
         }
 #endif

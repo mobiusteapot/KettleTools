@@ -1,8 +1,8 @@
 {
   "scopedRegistries": [
     {
-      "name": "npmjs",
-      "url": "https://registry.npmjs.org/",
+      "name": "ETC",
+      "url": "https://upm.etc.cmu.edu",
       "scopes": [
         "com.etc"
       ]

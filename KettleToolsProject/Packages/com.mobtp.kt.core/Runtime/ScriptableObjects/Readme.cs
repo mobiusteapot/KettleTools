@@ -139,7 +139,20 @@ namespace Mobtp.KT.Core.Docs {
                     if (altStart < urlStart && urlStart < urlEnd && urlEnd < line.Length) {
                         if (currentSection != null) {
                             currentSection.Text += line.Substring(0, altStart);
-                            currentSection.Image = AssetDatabase.LoadAssetAtPath<Sprite>(line.Substring(urlStart + 1, urlEnd - urlStart - 1));
+                            // Get the folder path (ie, nothing past the last /)
+                            var fullUrl = line.Substring(urlStart + 1, urlEnd - urlStart - 1);
+                            string folderPath = System.IO.Path.GetDirectoryName(fullUrl)?.Replace("\\", "/");  // Normalize slashes
+                            // Check if AssetDatabase recognizes the fullProjPath as valid before trying to load it
+                            bool foundPath = false;
+                            if(folderPath != null && AssetDatabase.IsValidFolder(folderPath)){
+                                currentSection.Image = AssetDatabase.LoadAssetAtPath<Sprite>(fullUrl);
+                                foundPath = true;
+                            }
+                            // If nothing found, try again, treating the path as a relative path to self
+                            if(currentSection.Image == null && !foundPath){
+                                var path = System.IO.Path.GetDirectoryName(AssetDatabase.GetAssetPath(this)) + "/" + line.Substring(urlStart + 1, urlEnd - urlStart - 1);
+                                currentSection.Image = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+                            }
                         }
                     }
                     else if (currentSection != null) {

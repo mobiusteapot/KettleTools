@@ -1,2 +1,2 @@
 # Local image path
-![Alt](/ScreenshotTest.png)
+![Alt](/Images/ScreenshotTest.png)

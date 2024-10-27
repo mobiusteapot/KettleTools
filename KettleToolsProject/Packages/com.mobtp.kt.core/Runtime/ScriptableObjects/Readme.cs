@@ -23,6 +23,7 @@ namespace Mobtp.KT.Core.Docs {
             [TextArea]
             public string Text;
             public string LinkText, Url;
+            // Images must be sprite format to ensure compatibility with canvas displaying of readmes
             public Sprite Image;
         }
 
@@ -149,7 +150,7 @@ namespace Mobtp.KT.Core.Docs {
                                 foundPath = true;
                             }
                             // If nothing found, try again, treating the path as a relative path to self
-                            if(currentSection.Image == null && !foundPath){
+                            if(currentSection.Image == null || !foundPath){
                                 var path = System.IO.Path.GetDirectoryName(AssetDatabase.GetAssetPath(this)) + "/" + line.Substring(urlStart + 1, urlEnd - urlStart - 1);
                                 currentSection.Image = AssetDatabase.LoadAssetAtPath<Sprite>(path);
                             }

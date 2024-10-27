@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e3382aa39c0d94e94a2f4519cc8ac8, type: 3}
   m_Name: Readme
   m_EditorClassIdentifier: 
-  TextType: 0
-  ExternalText: {fileID: 0}
+  TextType: 1
+  ExternalText: {fileID: 4900000, guid: 7fd40f39a802b465a854d505eda6f50f, type: 3}
   IsLocked: 0
   Icon: {fileID: 0}
   Title: Readme
-  Sections: []
+  Sections:
+  - Heading: ' Local image path'
+    Text: 
+    LinkText: 
+    Url: 
+    Image: {fileID: 21300000, guid: c49ca18ae97c040fe95fbebce05e5367, type: 3}
   isInitalized: 1
   linkStyle:
     m_Name: ControlLabel

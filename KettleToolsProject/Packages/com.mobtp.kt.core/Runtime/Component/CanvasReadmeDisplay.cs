@@ -11,7 +11,7 @@ using System.Collections.Generic;
 /// Not included if the TextMeshPro package is not installed. 
 /// </summary>
 namespace Mobtp.KT.Core.Docs {
-
+    [SelectionBase]
     [RequireComponent(typeof(CanvasRenderer), typeof(RectTransform))]
     public class CanvasReadmeDisplay : MonoBehaviour {
         // All population should be done in editor, no runtime access of any kind should occur

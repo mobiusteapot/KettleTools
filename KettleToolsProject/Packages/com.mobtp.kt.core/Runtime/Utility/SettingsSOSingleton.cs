@@ -12,9 +12,21 @@ using UnityEngine;
 // Unsure what other complications this may cause. Would love feedback from anyone who's familiar with these systems.
 //
 // Has error checking, but only in editor. In runtime, overhead is minimal.
+
+// This asset is for runtime reading from only. If you want gameplay data to be saved, use a different system.
 [DefaultExecutionOrder(-150)]
+[InitializeOnLoad]
 public abstract class SettingsSOSingleton<T> : ScriptableObject where T : Object
 {
+
+    // Note to self: for general settings provider, make sure to use
+    /*
+                if (!SessionState.GetBool("PreloadedAssetsInitDone", false))
+            {
+                PlayerSettings.GetPreloadedAssets();
+                SessionState.SetBool("PreloadedAssetsInitDone", true);
+            }
+            */
     public static T _instance;
     public static T Instance
     {

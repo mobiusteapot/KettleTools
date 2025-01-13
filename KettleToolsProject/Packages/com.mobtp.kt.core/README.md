@@ -5,3 +5,6 @@ Tools for scene management, version control, and in-editor documentation for cro
 <br>
 <br>
 Developed for collaboration within Building Virtual Worlds at the Entertainment Technology Center. Ideal for remote teams working on game jams.
+<br>
+<br>
+Warning: API is still under active development. Please use in-editor "Readme" assets set to "External" mode only to prevent data loss for the time being. Once the readme portion of the API is stable, this will not be neccesary.

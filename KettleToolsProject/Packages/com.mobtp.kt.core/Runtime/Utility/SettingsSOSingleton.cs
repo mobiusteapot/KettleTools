@@ -1,36 +1,39 @@
 using System.Linq;
-using UnityEditor;
+
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+// Todo: Update cavern package redirect to KettleTools to a newer version 
+// and use that identical version of this script instead.
 
 /// <summary>
 /// ScriptableObject singleton that persists between scenes and is accessible from anywhere.
 /// Works on both runtime and editor. Intended for settings only.
 /// </summary>
 /// <typeparam name="T"></typeparam>
- 
+
 // Execution order is set to -150 to ensure it loads before TextMeshPro things, which seems like a common usecase
 // Unsure what other complications this may cause. Would love feedback from anyone who's familiar with these systems.
 //
-// Has error checking, but only in editor. In runtime, overhead is minimal.
-
 // This asset is for runtime reading from only. If you want gameplay data to be saved, use a different system.
 [DefaultExecutionOrder(-150)]
-[InitializeOnLoad]
 public abstract class SettingsSOSingleton<T> : ScriptableObject where T : Object
 {
-
-    // Note to self: for general settings provider, make sure to use
-    /*
-                if (!SessionState.GetBool("PreloadedAssetsInitDone", false))
-            {
-                PlayerSettings.GetPreloadedAssets();
-                SessionState.SetBool("PreloadedAssetsInitDone", true);
-            }
-            */
     public static T _instance;
+    // Loads lazily if hasn't been otherwise accessed yet. Should be initialized in OnEnable beforehand
     public static T Instance
     {
-        get {
+        get
+        {
+#if UNITY_EDITOR
+            // On runtime, should already be initialized, so this potentially expensive/frequent check can be skipped
+            if (_instance == null)
+            {
+                LoadSettings();
+            }
+#endif
             return _instance;
         }
         private set => _instance = value;
@@ -54,9 +57,12 @@ public abstract class SettingsSOSingleton<T> : ScriptableObject where T : Object
         {
             hasBeenCreated = true;
             AddToPreloadedAssets();
+        } else{
+            ValidateInPreloadedAssets();
         }
 #endif
     }
+    // Todo: Clean up added assets on reload
 
 #if UNITY_EDITOR
     public static void AddToPreloadedAssets()
@@ -69,9 +75,8 @@ public abstract class SettingsSOSingleton<T> : ScriptableObject where T : Object
         PlayerSettings.SetPreloadedAssets(preloadedAssets.ToArray());
     }
     // As long as it has been added to the preloaded assets, it will be loaded on build
-    // This ensures it loads before Awake, in editor
-    // Known issue: still lost on domain reload 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
+    // Should be loaded automatically on first access, but is loaded "lazily" if not otherwise accessed.
+    // I have concerns about race conditions, but InitializeOnLoad and RuntimeInitializeOnLoad both don't work correctly with generics
     private static void LoadSettings()
     {
         if(_instance == null)
@@ -87,6 +92,14 @@ public abstract class SettingsSOSingleton<T> : ScriptableObject where T : Object
                 var path = AssetDatabase.GUIDToAssetPath(guids[0]);
                 _instance = AssetDatabase.LoadAssetAtPath<T>(path);
             }
+        }
+    }
+    // Check if asset is already in preloaded assets, if not, add it
+    public static void ValidateInPreloadedAssets(){
+        var preloadedAssets = UnityEditor.PlayerSettings.GetPreloadedAssets().ToList();
+        if(!preloadedAssets.Contains(_instance))
+        {
+            AddToPreloadedAssets();
         }
     }
 #endif

@@ -1,5 +1,5 @@
 using UnityEngine;
-#if PACKAGE_TEXTMESHPRO
+#if PACKAGE_TEXTMESHPRO || UNITY_6000_0_OR_NEWER
 using TMPro;
 #endif
 
@@ -7,7 +7,7 @@ namespace Mobtp.KT.Core.Docs {
 
     [System.Serializable]
     public class CanvasReadmeSettings {
-        #if PACKAGE_TEXTMESHPRO
+        #if PACKAGE_TEXTMESHPRO || UNITY_6000_0_OR_NEWER
         public float SectionSpacing = 24f;
         public float HeaderSpacing = 36f;
         public float HeadingFontSize = 24f;

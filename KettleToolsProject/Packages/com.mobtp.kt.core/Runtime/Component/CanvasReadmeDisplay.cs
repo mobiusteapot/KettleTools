@@ -2,7 +2,7 @@
 using UnityEngine;
 // Currently assuming UI is always included
 using UnityEngine.UI;
-#if PACKAGE_TEXTMESHPRO || UNITY_600_0_OR_NEWER
+#if PACKAGE_TEXTMESHPRO || UNITY_6000_0_OR_NEWER
 using TMPro;
 #endif
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace Mobtp.KT.Core.Docs {
     [RequireComponent(typeof(CanvasRenderer), typeof(RectTransform))]
     public class CanvasReadmeDisplay : MonoBehaviour {
         // All population should be done in editor, no runtime access of any kind should occur
-#if UNITY_EDITOR && (PACKAGE_TEXTMESHPRO || UNITY_600_0_OR_NEWER)
+#if UNITY_EDITOR && (PACKAGE_TEXTMESHPRO || UNITY_6000_0_OR_NEWER)
         public CanvasReadmeSettings Settings;
         [SerializeField] private Readme readme;
 

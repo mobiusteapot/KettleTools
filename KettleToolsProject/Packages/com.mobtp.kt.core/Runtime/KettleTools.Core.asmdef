@@ -16,6 +16,11 @@
             "name": "com.unity.textmeshpro",
             "expression": "1.0.0",
             "define": "PACKAGE_TEXTMESHPRO"
+        },
+        {
+            "name": "com.unity.ugui",
+            "expression": "2.0.0",
+            "define": "PACKAGE_TEXTMESHPRO"
         }
     ],
     "noEngineReferences": false

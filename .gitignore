@@ -60,5 +60,5 @@ KettleToolsProject/Builds
 .DS_store
 **/.DS_Store
 
-# Local package development GUI
-/DevTools/KettlePackageSync/
+# Local development tools
+/DevTools/

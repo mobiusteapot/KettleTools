@@ -1,71 +1,63 @@
-using System;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 using Mobtp.KT.Core.Docs;
+
 namespace Mobtp.KettleTools.Scenes {
     [CustomEditor(typeof(SceneAsset))]
     public class SceneAssetAdditionalDataEditor : Editor {
-        // Draw default inspector
-        private SceneAdditionalData sceneData;
-        private AssetImporter importer;
-        private string assetPath;
-        private void OnEnable() {
-            // Blank scriptable object for json to write to
-            sceneData = CreateInstance<SceneAdditionalData>();
-            assetPath = AssetDatabase.GetAssetPath(target);
-            importer = AssetImporter.GetAtPath(assetPath);
-        }
         public override void OnInspectorGUI() {
             base.OnInspectorGUI();
-            EditorGUI.EndDisabledGroup();
+            bool wasEnabled = GUI.enabled;
+            GUI.enabled = true;
 
-            if (importer.userData != "") {
-                string guid = importer.userData;
-                string path = AssetDatabase.GUIDToAssetPath(guid);
-                sceneData = AssetDatabase.LoadAssetAtPath<SceneAdditionalData>(path);
-            }
+            try {
+                string assetPath = AssetDatabase.GetAssetPath(target);
+                AssetImporter importer = AssetImporter.GetAtPath(assetPath);
+                if (importer == null) return;
 
+                string dataPath = AssetDatabase.GUIDToAssetPath(importer.userData);
+                SceneAdditionalData sceneData = string.IsNullOrEmpty(dataPath)
+                    ? null
+                    : AssetDatabase.LoadAssetAtPath<SceneAdditionalData>(dataPath);
 
-            using (var check = new EditorGUI.ChangeCheckScope()) {
-                if (sceneData != null && sceneData.name != "") {
-                    EditorGUI.BeginDisabledGroup(true);
-                    sceneData = (SceneAdditionalData)EditorGUILayout.ObjectField("Additional Scene Data", sceneData, typeof(SceneAdditionalData), false);
-                    EditorGUI.EndDisabledGroup();
+                if (sceneData == null) {
+                    if (GUILayout.Button("Create Additional Scene Data")) {
+                        sceneData = CreateInstance<SceneAdditionalData>();
+                        dataPath = AssetDatabase.GenerateUniqueAssetPath(Path.ChangeExtension(assetPath, null) + "SceneData.asset");
+                        AssetDatabase.CreateAsset(sceneData, dataPath);
+                        AssetDatabase.SaveAssets();
+                        importer.userData = AssetDatabase.AssetPathToGUID(dataPath);
+                        importer.SaveAndReimport();
+                    }
+                    return;
+                }
 
-                    SerializedObject sceneDataObject = new SerializedObject(sceneData);
-                    SerializedProperty sceneDataIterator = sceneDataObject.GetIterator();
-                    if (sceneDataIterator.NextVisible(true)) {
+                using (new EditorGUI.DisabledScope(true)) {
+                    EditorGUILayout.ObjectField("Additional Scene Data", sceneData, typeof(SceneAdditionalData), false);
+                }
+
+                using (var dataObject = new SerializedObject(sceneData)) {
+                    dataObject.Update();
+                    SerializedProperty iterator = dataObject.GetIterator();
+                    if (iterator.NextVisible(true)) {
                         do {
-                            if (sceneDataIterator.name != "m_Script") {
-                                EditorGUILayout.PropertyField(sceneDataIterator);
+                            if (iterator.name != "m_Script" && iterator.name != "sceneDependencies") {
+                                GUIContent label = iterator.name == "autoOpenAdditionalScenesInEditor"
+                                    ? new GUIContent("Auto-Open Additional Scenes In Editor") : null;
+                                EditorGUILayout.PropertyField(iterator, label, true);
                             }
-                        } while (sceneDataIterator.NextVisible(false));
+                        } while (iterator.NextVisible(false));
                     }
+                    dataObject.ApplyModifiedProperties();
+                }
 
-                    // Todo: Move this to scene readme?
-                    SerializedProperty readmeProp = sceneDataObject.FindProperty("readme");
-                    SerializedProperty showSceneReadmeProp = sceneDataObject.FindProperty("showSceneReadmeSetting");
-                    EditorGUILayout.PropertyField(readmeProp);
-                    EditorGUILayout.PropertyField(showSceneReadmeProp,new GUIContent("Show Readme: "));
-                    if (readmeProp.objectReferenceValue != null) {
-                        Readme readme = sceneData.readme;
-                        SceneReadmeVisibility readmeSetting = sceneData.showSceneReadmeSetting;
-                        if(readmeSetting.HasFlag(SceneReadmeVisibility.onAssetSelect)) {
-                            readme.DrawReadmeSections();
-                        }
-                    }
-                    sceneDataObject.ApplyModifiedProperties();
-                } else if (GUILayout.Button("Create Additional Scene Data")) {
-                    sceneData = CreateInstance<SceneAdditionalData>();
-                    AssetDatabase.CreateAsset(sceneData, assetPath.Replace(".unity", "SceneData.asset"));
-                    AssetDatabase.SaveAssets();
-                    AssetDatabase.Refresh();
+                if (sceneData.readme != null && sceneData.showSceneReadmeSetting.HasFlag(SceneReadmeVisibility.onAssetSelect)) {
+                    sceneData.readme.DrawReadmeSections();
                 }
-                if (check.changed) {
-                    importer.userData = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(sceneData));
-                }
+            } finally {
+                GUI.enabled = wasEnabled;
             }
         }
-
     }
 }
